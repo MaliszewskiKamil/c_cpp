@@ -16,10 +16,29 @@ int random_integer;
 int random_choose_set;
 string password;
 
+
+bool capital(string capital){
+  cout << "Do you want capital letters (y/n): ";
+  cin >> capital;
+  if(capital == "n"){ return false; }
+  else { return true; }
+}
+
+bool special(string special){
+  cout << "Do you want special letters (y/n): ";
+  cin >> special;
+  if(special == "n") { return false; }
+  else { return true; }
+}
+
+
+
 int main(){
   cout << "Choose a length of a password: ";
   cin >> password_length;
-  
+  string want_capital;
+  cout << capital(want_capital);
+
   srand(time(NULL));
 
   for(int i = 0; i<password_length; i++){
