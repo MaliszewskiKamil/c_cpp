@@ -11,20 +11,26 @@ const char* const capital_characters[24] = {"A", "B", "C", "D", "E", "F", "G", "
 const int min_range = 0;
 const int max_range = 24;
 int random_integer;
-char password;
+int random_choose_set;
+string password;
 
 int main(){
   cout << "Choose a length of a password: ";
   cin >> password_length;
-  password = new char* const [password_length];
-
   
   srand(time(NULL));
 
   for(int i = 0; i<password_length; i++){
 
     random_integer = rand() % max_range + 1; 
-    password += small_characters[random_integer];
+    random_choose_set = rand() % 2;
+    if(random_choose_set == 0){
+      password += small_characters[random_integer];
+    }
+
+    if(random_choose_set == 1){
+      password += capital_characters[random_integer];
+    }
   }
 
   cout << password;
